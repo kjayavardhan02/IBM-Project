@@ -47,23 +47,23 @@ while true; do
             
             case $script_choice in
                 1) center_text "${YELLOW}▶ Running compare_results.py...${NC}"
-                   python3 compare_results_updated.py ;;
+                   python3 compare_results.py ;;
                 2) center_text "${YELLOW}▶ Running monitor.py...${NC}"
-                   python3 monitor_updated.py ;;
+                   python3 monitor.py ;;
                 3) center_text "${YELLOW}▶ Running optimization.py (sudo required)...${NC}"
-                   sudo python3 optimization_updated.py ;;
+                   sudo python3 optimization.py ;;
                 4) center_text "${CYAN}📄 Generating full report...${NC}"
                    if [[ -f "usage_before.csv" && -f "usage_after.csv" ]]; then
                        center_text "${GREEN}✅ Found existing usage files. Skipping monitoring & optimization...${NC}"
                    else
                        center_text "${RED}⚠️  Files not found. Running full process again...${NC}"
-                       center_text "${YELLOW}Step 1️⃣: Monitoring system usage (before optimization)...${NC}"
-                       python3 monitor_updated.py
-                       center_text "${YELLOW}Step 2️⃣: Running optimization process...${NC}"
-                       sudo python3 optimization_updated.py
+                       center_text "${YELLOW}Monitoring system usage (before optimization)...${NC}"
+                       python3 monitor.py
+                       center_text "${YELLOW}Running optimization process...${NC}"
+                       sudo python3 optimization.py
                    fi
-                   center_text "${YELLOW}Step 3️⃣: Comparing results and generating PDF report...${NC}"
-                   python3 compare_results_updated.py
+                   center_text "${YELLOW}Comparing results and generating PDF report...${NC}"
+                   python3 compare_results.py
                    center_text "${GREEN}✅ Full report generated successfully.${NC}" ;;
                 5) center_text "${CYAN}↩ Returning to main menu...${NC}" ;;
                 *) center_text "${RED}❌ Invalid option!${NC}" ;;
