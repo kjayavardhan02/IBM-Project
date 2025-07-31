@@ -22,18 +22,18 @@ while true; do
             
             case $script_choice in
                 1) echo "▶ Running compare_results.py..."
-                   python3 compare_results_updated.py ;;
+                   python3 compare_results.py ;;
                 2) echo "▶ Running monitor.py..."
-                   python3 monitor_updated.py ;;
+                   python3 monitor.py ;;
                 3) echo "▶ Running optimization.py..."
-                   sudo python3 optimization_updated.py ;;
+                   sudo python3 optimization.py ;;
                 4) echo "📄 Generating full report..."
                    echo "Step 1️⃣: Monitoring system usage (before optimization)..."
-                   python3 monitor_updated.py
+                   python3 monitor.py
                    echo "Step 2️⃣: Running optimization process..."
-                   sudo python3 optimization_updated.py
+                   sudo python3 optimization.py
                    echo "Step 3️⃣: Comparing results and generating PDF report..."
-                   python3 compare_results_updated.py
+                   python3 compare_results.py
                    echo "✅ Full report generated successfully." ;;
                 5) echo "↩ Returning to main menu..." ;;
                 *) echo "❌ Invalid option!" ;;
